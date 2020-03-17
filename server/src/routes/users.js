@@ -3,6 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/', (req, res) => {
+  const users = req.context.User.find({});
   res.json(users);
 });
 

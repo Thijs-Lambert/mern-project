@@ -1,27 +1,17 @@
-//Dummy Data
-const users = [
-  {
-    id: 0,
-    name: 'Thijs',
-  },
-  {
-    id: 1,
-    name: 'Kevin',
-  },
-];
+import mongoose from 'mongoose';
 
-const messages = [
-  {
-    id: 0,
-    text: 'Hello world',
-  },
-  {
-    id: 1,
-    text: 'Jumping is not a crime',
-  },
-];
+import User from './user';
+import Message from './message';
 
-export default {
-  users,
-  messages,
+const connectDb = () => {
+  return mongoose.connect('mongodb://localhost:27017/mern');
 };
+
+const models = {
+  User,
+  Message,
+};
+
+export default models;
+export { connectDb }export { connectDb };
+;

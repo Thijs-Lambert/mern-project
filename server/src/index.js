@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 
 import routes from './routes';
-import models from './models';
+import models, { connectDb } from './models';
 
 const app = express();
 
@@ -24,4 +24,6 @@ app.use('/users', routes.users);
 app.use('/messages', routes.messages);
 
 // Start Server
-app.listen(3000, () => console.log(`Example app listening on port 3000!`));
+connectDb().then(async () => {
+  app.listen(3000, () => console.log(`Example app listening on port 3000!`));
+});
